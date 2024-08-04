@@ -23,8 +23,9 @@ GPG Manager is a program written in Bash that centralizes all GPG functionalitie
 
 ☑️ **Requirements:**
 
-Bash
-GPG (GNU Privacy Guard). This program is requiered but installed at runtime.
+- Bash
+
+- GPG (GNU Privacy Guard). This program is requiered but installed at runtime.
 
 ⚙️ **Installation:**
 
