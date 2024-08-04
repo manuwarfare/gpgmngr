@@ -299,57 +299,80 @@ import_key_from_file() {
     read -r
 }
 
-
 import_key_from_keyserver() {
     echo "Select keyserver:"
     echo "1. keys.openpgp.org"
     echo "2. keyserver.ubuntu.com"
     read -r keyserver_choice
-
     case $keyserver_choice in
         1) keyserver="hkps://keys.openpgp.org" ;;
         2) keyserver="hkps://keyserver.ubuntu.com" ;;
         *) echo "Invalid choice. Using keys.openpgp.org by default."
            keyserver="hkps://keys.openpgp.org" ;;
     esac
-
     echo "Enter email, key ID, or fingerprint:"
-    read -r identifier
+    read -r search_identifier
+    echo "Searching for key $search_identifier on $keyserver..."
 
-    echo "Searching for key $identifier on $keyserver..."
-    key_info=$(gpg --keyserver "$keyserver" --search-keys "$identifier" 2>&1)
-
-    if [[ $? -ne 0 ]]; then
-        echo "Error: No key found for $identifier"
-        return 1
+    # Use --dry-run to prevent automatic import during search
+    if ! key_info=$(gpg --keyserver "$keyserver" --search-keys --dry-run "$search_identifier" 2>&1); then
+        echo "Key not found, try another keyserver."
+        echo "Press Enter to continue..."
+        read -r
+        return
     fi
-
     echo "Key found:"
     echo "$key_info"
-    echo "Are you sure you want to proceed with importation? (y/n):"
-    read -r confirm
 
-    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-        echo "Import cancelled."
-        return 0
+    # Extract key ID from the search results
+    key_id=$(echo "$key_info" | grep -oP '(?<=key )[A-F0-9]{16}' | head -n1)
+    if [ -z "$key_id" ]; then
+        echo "Error: Could not extract key ID from search results."
+        echo "Press Enter to continue..."
+        read -r
+        return
+    fi
+
+    # Check if key already exists
+    if gpg --list-keys "$key_id" &>/dev/null; then
+        echo "The key is already imported. Do you want to overwrite it? (y/n):"
+        read -r overwrite
+        if [[ ! "$overwrite" =~ ^[Yy]$ ]]; then
+            echo "Import cancelled."
+            echo "Press Enter to continue..."
+            read -r
+            return
+        fi
+    else
+        echo "Are you sure you want to proceed with importation? (y/n):"
+        read -r confirm
+        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+            echo "Import cancelled."
+            echo "Press Enter to continue..."
+            read -r
+            return
+        fi
     fi
 
     echo "Importing key..."
-    if gpg --keyserver "$keyserver" --recv-keys "$identifier"; then
-        echo "Key imported successfully."
-
-        # Verify fingerprint
+    if output=$(gpg --keyserver "$keyserver" --recv-keys "$key_id" 2>&1); then
+        if echo "$output" | grep -q "not changed"; then
+            echo "Key is already up to date."
+        else
+            echo "Key successfully imported or updated."
+        fi
         echo "Verifying key fingerprint..."
-        fingerprint=$(gpg --fingerprint "$identifier" | grep fingerprint | awk '{print $10$11$12$13}')
+        fingerprint=$(gpg --fingerprint "$key_id" | grep fingerprint | awk '{print $10$11$12$13}')
         echo "The fingerprint of the imported key is: $fingerprint"
         echo "Please verify this fingerprint with the key owner through a secure channel."
-
-        # Check key health
         echo "Checking key health..."
-        gpg --check-signatures "$identifier"
+        gpg --check-signatures "$key_id"
     else
-        echo "Error: Failed to import key. Please check the identifier and try again."
+        echo "Error: Failed to import key. Details:"
+        echo "$output"
     fi
+    echo "Press Enter to continue..."
+    read -r
 }
 
 export_public_key() {
@@ -440,6 +463,7 @@ update_key_on_keyserver() {
 backup_restore() {
     clear
     while true; do
+        clear
         echo "Main > Backup and Restore:"
         echo "1. Backup keys"
         echo "2. Restore keys"
