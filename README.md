@@ -9,7 +9,11 @@ GPG Manager is a program written in Bash that centralizes all GPG functionalitie
 
 - Encryption and Decryption Operations: Easily encrypt and decrypt documents through interactive menus.
 
+- Signing and verification: Sign documents and keys and verify file status.
+
 - Backup and Restore: Backup your keys and restore them when needed.
+
+- Key trade: Manage your keys from the most known keyservers.
 
 - Miscellaneous Operations: Access additional functionality such as listing supported algorithms and other useful options.
 
