@@ -14,7 +14,7 @@ usage() {
 
 # Function to display version information
 version() {
-    echo "GPG Manager version 1.0"
+    echo "gpgmngr (GPG Manager) 1.0.0"
 }
 
 # Function to check if GPG is installed
