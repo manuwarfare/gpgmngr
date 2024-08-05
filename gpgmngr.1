@@ -1,0 +1,82 @@
+.TH GPGMNGR 1 "August 2024" "Version 1.0" "gpgmngr"
+.SH NAME
+gpgmngr \- GPG Manager
+.SH SYNOPSIS
+.B gpgmngr
+[\fIoptions\fP] [\fIusage\fP] ...
+.SH DESCRIPTION
+.B gpgmngr
+is a command-line tool for managing GPG keys, including creating, listing, editing, and deleting keys. It offers a user-friendly interface to handle GPG key management tasks in any GNU/Linux distribution.
+.SH OPTIONS
+.TP
+.B \-v
+Show the program version.
+.TP
+.B \-h
+Show this help message.
+.SH FUNCTIONS
+.TP
+.B create_key
+Create a new GPG key.
+.TP
+.B list_keys
+List all existing GPG keys.
+.TP
+.B edit_key \fI<keyID>\fP
+Edit the specified GPG key.
+.TP
+.B delete_key \fI<keyID>\fP
+Delete the specified GPG key.
+.TP
+.B modify_key_expiration \fI<keyID>\fP
+Modify the expiration date of a GPG key.
+.TP
+.B backup_keys
+Backup GPG keys.
+.TP
+.B restore_keys
+Restore GPG keys from a backup.
+.SH USAGE EXAMPLES
+Create a new GPG key:
+.B gpgmngr create_key
+.P
+List all GPG keys:
+.B gpgmngr list_keys
+.P
+Edit a GPG key with ID 123ABC:
+.B gpgmngr edit_key 123ABC
+.P
+Delete a GPG key with ID 123ABC:
+.B gpgmngr delete_key 123ABC
+.SH BUGS
+.B gpgmngr
+If you discover any bugs in \fBgpgmngr\fP, please contact the author.
+.SH SEE ALSO
+.B gpg(1),
+.B gpg-agent(1),
+.B gpgsm(1).
+.SH AUTHORS
+Originally written by Manuel Guerra <ar.manuelguerra@gmail.com>.
+.P
+Please use the email address <ar.manuelguerra@gmail.com> for gpgmngr-related comments.
+.SH COPYRIGHT
+Copyright © 2024 Manuel Guerra
+.P
+License: GPL-3+
+.PP
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+.PP
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+.PP
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+.PP
+On Debian systems, the complete text of the GNU General
+Public License version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+

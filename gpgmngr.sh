@@ -866,10 +866,30 @@ generate_revocation_certificate() {
 }
 
 manage_subkeys() {
-    echo "Enter the key ID to manage subkeys:"
-    read -r keyid
-    gpg --edit-key "$keyid"
-    echo "Use 'addkey', 'key X' (where X is the subkey number), and 'expire' commands in the GPG prompt to manage subkeys."
+    while true; do
+        echo "Enter the key ID to manage subkeys (or press Enter to return):"
+        read -r keyid
+
+        if [ -z "$keyid" ]; then
+            echo "Returning to Key Management menu..."
+            return
+        fi
+
+        if gpg --list-keys "$keyid" > /dev/null 2>&1; then
+            echo "Managing subkeys for key $keyid"
+            echo "Use 'addkey', 'key X' (where X is the subkey number), and 'expire' commands in the GPG prompt to manage subkeys."
+            gpg --edit-key "$keyid"
+            echo "Subkey management completed. Press Enter to continue..."
+            read -r
+            return
+        else
+            echo "Invalid key ID or fingerprint. Try again or press Enter to return to the menu..."
+            read -r response
+            if [ -z "$response" ]; then
+                return
+            fi
+        fi
+    done
 }
 
 change_passphrase() {
