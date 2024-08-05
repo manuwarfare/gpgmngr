@@ -862,14 +862,79 @@ change_passphrase() {
 modify_key_expiration() {
     echo "Enter the key ID to modify expiration:"
     read -r keyid
-    gpg --edit-key "$keyid"
-    echo "Use the 'expire' command in the GPG prompt to change the expiration date."
+
+    # Key ID validation
+    if [ -z "$keyid" ]; then
+        echo "Key ID cannot be empty. Press Enter to continue..."
+        read -r
+        return
+    fi
+
+    # Check if the key ID exists in the keyring
+    if ! gpg --list-keys "$keyid" >/dev/null 2>&1; then
+        echo "Invalid key ID. Press Enter to continue..."
+        read -r
+        return
+    fi
+
+    echo "Enter new expiration period (e.g., 1y for one year, 6m for six months)."
+    echo "Leave empty for no expiration:"
+    read -r expiration
+
+    # Create temp file for GPG commands
+    temp_file=$(mktemp)
+
+    if [ -z "$expiration" ]; then
+        # If empty no expiration
+        {
+            echo "expire"
+            echo ""
+            echo "save"
+        } > "$temp_file"
+    else
+        # If non empty uses the input duration
+        {
+            echo "expire"
+            echo "$expiration"
+            echo "save"
+        } > "$temp_file"
+    fi
+
+    # Execute GPG with temp file's commands
+    gpg --command-file "$temp_file" --edit-key "$keyid"
+
+    # Capture the GPG commands output
+    status=$?
+
+    # Remove the temp file
+    rm -f "$temp_file"
+
+    if [ $status -eq 0 ]; then
+        echo "Key expiration modified successfully. Press Enter to continue..."
+    else
+        echo "An error occurred while modifying the key expiration. Please check the errors above. Press Enter to continue..."
+    fi
+
+    read -r
 }
 
 clean_keyring() {
-    gpg --delete-key --yes $(gpg --list-keys | grep -E "^pub\s+\[expired\:\s" | awk '{print $2}' | cut -d'/' -f2)
-    echo "Expired keys have been removed from the keyring."
+    expired_keys=$(gpg --list-keys | grep -E "^pub\s+\[expired: " | awk '{print $2}' | cut -d'/' -f2)
+
+    if [ -z "$expired_keys" ]; then
+        echo "The keyring is clean, nothing to do. Press Enter to continue..."
+    else
+        if gpg --delete-key --yes $expired_keys; then
+            echo "Keyring clean successfully. Press Enter to continue..."
+        else
+            echo "An error occurred while cleaning the keyring. Please check the errors above. Press Enter to continue..."
+        fi
+    fi
+
+    read -r
 }
+
+
 
 # Main function
 main() {
