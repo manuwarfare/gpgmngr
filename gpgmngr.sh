@@ -261,11 +261,45 @@ list_keys() {
         echo " 3. Back to Key Management"
         read -r key_type
         case $key_type in
-            1)
-                gpg --list-keys
-                ;;
-            2)
-                gpg --list-secret-keys
+            1|2)
+                clear
+                echo "========================================"
+                echo "           GPG Key Listing              "
+                echo "========================================"
+                echo
+                if [ "$key_type" -eq 1 ]; then
+                    gpg --list-keys --keyid-format LONG --with-fingerprint | awk '
+                        /^pub/{
+                            getline
+                            sub(/^\s+/, "")  # Remove leading whitespace
+                            print "\033[1;36m" $0 "\033[0m"
+                        }
+                        /^uid/{
+                            $1 = "uid   "  # Replace uid with fixed-width spacing
+                            print "\033[1;32m" $0 "\033[0m"
+                        }
+                        /^sub/{print "\033[1;33m" $0 "\033[0m"}
+                        /^$/  {print "----------------------------------------"}
+                    '
+                else
+                    gpg --list-secret-keys --keyid-format LONG --with-fingerprint | awk '
+                        /^sec/{
+                            getline
+                            sub(/^\s+/, "")  # Remove leading whitespace
+                            print "\033[1;31m" $0 "\033[0m"
+                        }
+                        /^uid/{
+                            $1 = "uid   "  # Replace uid with fixed-width spacing
+                            print "\033[1;32m" $0 "\033[0m"
+                        }
+                        /^ssb/{print "\033[1;35m" $0 "\033[0m"}
+                        /^$/  {print "----------------------------------------"}
+                    '
+                fi
+                echo
+                echo "========================================"
+                echo "Press Enter to continue..."
+                read -r
                 ;;
             3)
                 return
@@ -274,8 +308,6 @@ list_keys() {
                 echo "Invalid option"
                 ;;
         esac
-        echo "Press Enter to continue..."
-        read -r
     done
 }
 
