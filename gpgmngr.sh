@@ -429,8 +429,6 @@ export_public_key() {
     done
 }
 
-
-
 export_private_key() {
     echo "Warning: Exporting private keys is a security risk. Only do this if absolutely necessary."
     echo "Are you sure you want to continue? (y/n)"
@@ -544,8 +542,6 @@ backup_restore() {
     done
 }
 
-
-
 sign_document() {
     echo "Enter the path to the document to sign:"
     read -r document
@@ -573,9 +569,6 @@ sign_document() {
     echo "Press Enter to continue..."
     read -r
 }
-
-
-
 
 encrypt_document() {
     echo "Enter the path to the document to encrypt:"
@@ -605,8 +598,6 @@ encrypt_document() {
         read -r
     fi
 }
-
-
 
 decrypt_document() {
     echo "Enter the path to the document to decrypt:"
@@ -690,8 +681,6 @@ verify_signature() {
     done
 }
 
-
-
 sign_key() {
     while true; do
         echo "Enter the key ID to sign:"
@@ -711,7 +700,6 @@ sign_key() {
     echo "Press Enter to continue..."
     read -r
 }
-
 
 verify_file_integrity() {
     echo "Enter the path to the file to verify:"
@@ -831,7 +819,6 @@ delete_key() {
     done
 }
 
-
 revoke_key() {
     echo "Enter the key ID to revoke:"
     read -r keyid
@@ -933,8 +920,6 @@ clean_keyring() {
 
     read -r
 }
-
-
 
 # Main function
 main() {
