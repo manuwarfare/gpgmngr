@@ -1,0 +1,203 @@
+.TH GPGMNGR 1 "August 2024" "Version 1.0.1" "gpgmngr"
+.SH NAME
+gpgmngr \- GPG Manager
+.SH SYNOPSIS
+.B gpgmngr
+[\fIoptions\fP] [\fImenu-options\fP] ...
+.SH DESCRIPTION
+.B gpgmngr
+is a command-line tool for managing all GPG functionalities, including creating, listing, editing, and deleting keys. It offers a user-friendly interface to handle GPG key management on the GNU/Linux terminal.
+.SH OPTIONS
+.TP
+.B \-v
+Show the program version.
+.TP
+.B \-h
+Show the help.
+.SH MENU OPTIONS
+The script is divided into several main sections, each with submenus:
+
+.SS 1. Key Management
+These options allow managing GPG keys.
+
+.TP
+\fB1. Create new key\fR
+Generate a new GPG key pair.
+
+.TP
+\fB2. List keys\fR
+List all available GPG keys.
+
+.TP
+\fB3. Edit key\fR
+Edit an existing GPG key.
+
+.TP
+\fB4. Delete key\fR
+Delete an existing GPG key.
+
+.TP
+\fB5. Revoke key\fR
+Revoke a GPG key.
+
+.TP
+\fB6. Generate revocation certificate\fR
+Create a revocation certificate for a GPG key.
+
+.TP
+\fB7. Manage subkeys\fR
+Manage subkeys associated with a GPG key.
+
+.TP
+\fB8. Change passphrase\fR
+Change the passphrase for a GPG key.
+
+.TP
+\fB9. Modify key expiration\fR
+Change the expiration date of a GPG key.
+
+.TP
+\fB10. Clean keyring\fR
+Remove unnecessary data from the keyring.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 2. Encryption and Decryption
+These options allow performing encryption and decryption operations.
+
+.TP
+\fB1. Encrypt document\fR
+Encrypt a document using a GPG key.
+
+.TP
+\fB2. Decrypt document\fR
+Decrypt a previously encrypted document.
+
+.TP
+\fB3. Symmetric encryption\fR
+Encrypt a document using symmetric encryption.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 3. Signing and Verification
+These options allow signing and verifying documents.
+
+.TP
+\fB1. Sign document\fR
+Digitally sign a document with a GPG key.
+
+.TP
+\fB2. Verify signature\fR
+Verify the signature of a signed document.
+
+.TP
+\fB3. Sign key\fR
+Sign another user's GPG key.
+
+.TP
+\fB4. Verify file integrity\fR
+Verify the integrity of a file using a signature.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 4. Key Trade Operations
+These options allow importing, exporting, and updating GPG keys.
+
+.TP
+\fB1. Import key from file\fR
+Import a GPG key from a file.
+
+.TP
+\fB2. Import key from keyserver\fR
+Import a GPG key from a keyserver.
+
+.TP
+\fB3. Export public key\fR
+Export a public GPG key to a file.
+
+.TP
+\fB4. Export private key\fR
+Export a private GPG key to a file.
+
+.TP
+\fB5. Upload key to keyserver\fR
+Upload a GPG key to a keyserver.
+
+.TP
+\fB6. Update key on keyserver\fR
+Update an existing GPG key on a keyserver.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 5. Backup and Restore
+These options allow backing up and restoring GPG keys.
+
+.TP
+\fB1. Backup keys\fR
+Backup GPG keys to a secure location.
+
+.TP
+\fB2. Restore keys\fR
+Restore GPG keys from a backup.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 6. Miscellaneous
+These options provide additional GPG-related functionalities.
+
+.TP
+\fB1. Show GPG config info\fR
+Display GPG configuration information.
+
+.TP
+\fB2. Show key fingerprint\fR
+Display the fingerprint of a GPG key.
+
+.TP
+\fB0. Back to main menu\fR
+Return to the main menu.
+
+.SS 0. Exit
+Exit the script.
+.SH BUGS
+.B gpgmngr
+If you discover any bugs in \fBgpgmngr\fP, please contact the author.
+.SH SEE ALSO
+.B gpg(1),
+.B gpg-agent(1),
+.B gpgsm(1).
+.SH AUTHORS
+Originally written by Manuel Guerra <ar.manuelguerra@gmail.com>.
+.P
+Please use the email address <ar.manuelguerra@gmail.com> for gpgmngr-related comments.
+.SH COPYRIGHT
+Copyright © 2024 Manuel Guerra
+.P
+License: GPL-3+
+.PP
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+.PP
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+.PP
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+.PP
+On Debian systems, the complete text of the GNU General
+Public License version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+
