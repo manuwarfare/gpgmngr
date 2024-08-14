@@ -23,7 +23,7 @@ usage() {
 
 # Function to display version information
 version() {
-    echo -e "${CYAN}gpgmngr (GPG Manager) 1.0.0${NC}"
+    echo -e "${CYAN}gpgmngr (GPG Manager) 1.0.2${NC}"
 }
 
 # Function to check if GPG is installed
