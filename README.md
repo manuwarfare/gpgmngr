@@ -29,6 +29,10 @@ GPG Manager is a program written in Bash that centralizes all GPG functionalitie
 
 ⚙️ **Installation:**
 
+For Debian based systems use `sudo apt install gpgmngr`
+
+For manual installation follow these steps:
+
 Clone this repository: `git clone https://github.com/manuwarfare/gpgmngr.git`
 
 Navigate to the project directory: `cd gpgmngr`
