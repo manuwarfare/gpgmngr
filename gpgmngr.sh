@@ -47,17 +47,18 @@ check_gpg_installed() {
 # Function to display the main menu
 show_main_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}          gpgmngr (GPG Manager)${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Key Management${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}Encryption and Decryption${NC}"
-    echo -e "${GREEN} 3.${NC} ${NC}Signing and Verification${NC}"
-    echo -e "${GREEN} 4.${NC} ${NC}Key Trade Operations${NC}"
-    echo -e "${GREEN} 5.${NC} ${NC}Backup and Restore${NC}"
-    echo -e "${GREEN} 6.${NC} ${NC}Miscellaneous${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Exit${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│               gpgmngr (GPG Manager)               │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Key Management                   ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Encryption and Decryption        ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}3.${NC}  Signing and Verification         ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}4.${NC}  Key Trade Operations             ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}5.${NC}  Backup and Restore               ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}6.${NC}  Miscellaneous                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Exit                             ${CYAN}             │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -65,21 +66,22 @@ show_main_menu() {
 # Function to display the key management submenu
 show_key_management_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}          Main > Key Management${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Create new key${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}List keys${NC}"
-    echo -e "${GREEN} 3.${NC} ${NC}Edit key${NC}"
-    echo -e "${GREEN} 4.${NC} ${NC}Delete key${NC}"
-    echo -e "${GREEN} 5.${NC} ${NC}Revoke key${NC}"
-    echo -e "${GREEN} 6.${NC} ${NC}Generate revocation certificate${NC}"
-    echo -e "${GREEN} 7.${NC} ${NC}Manage subkeys${NC}"
-    echo -e "${GREEN} 8.${NC} ${NC}Change passphrase${NC}"
-    echo -e "${GREEN} 9.${NC} ${NC}Modify key expiration${NC}"
-    echo -e "${GREEN}10.${NC} ${NC}Clean keyring${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│               Main > Key Management               │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Create new key                     ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  List keys                          ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}3.${NC}  Edit key                           ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}4.${NC}  Delete key                         ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}5.${NC}  Revoke key                         ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}6.${NC}  Generate revocation certificate    ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}7.${NC}  Manage subkeys                     ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}8.${NC}  Change passphrase                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}9.${NC}  Modify key expiration              ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}10.${NC} Clean keyring                      ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -87,14 +89,15 @@ show_key_management_menu() {
 # Function to display the encryption and decryption submenu
 show_encryption_decryption_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}    Main > Encryption and Decryption${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Encrypt document${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}Decrypt document${NC}"
-    echo -e "${GREEN} 3.${NC} ${NC}Symmetric encryption${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│          Main > Encryption and Decryption         │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Encrypt document                   ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Decrypt document                   ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}3.${NC}  Symmetric encryption               ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -102,15 +105,16 @@ show_encryption_decryption_menu() {
 # Function to display the signing and verification submenu
 show_signing_verification_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}    Main > Signing and Verification    ${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Sign document${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}Verify signature${NC}"
-    echo -e "${GREEN} 3.${NC} ${NC}Sign key${NC}"
-    echo -e "${GREEN} 4.${NC} ${NC}Verify file integrity${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│          Main > Signing and Verification          │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Sign document                      ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Verify signature                   ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}3.${NC}  Sign key                           ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}4.${NC}  Verify file integrity              ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -119,17 +123,19 @@ show_signing_verification_menu() {
 # Function to display the key server operations submenu
 show_key_server_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}      Main > Key Trade Operations${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Import key from file${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}Import key from keyserver${NC}"
-    echo -e "${GREEN} 3.${NC} ${NC}Export public key${NC}"
-    echo -e "${GREEN} 4.${NC} ${NC}Export private key${NC}"
-    echo -e "${GREEN} 5.${NC} ${NC}Upload key to keyserver${NC}"
-    echo -e "${GREEN} 6.${NC} ${NC}Update key on keyserver${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│            Main > Key Trade Operations            │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Import key from file               ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Import key from keyserver          ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}3.${NC}  Export public key                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}4.${NC}  Export private key                 ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}5.${NC}  Export a key signature             ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}6.${NC}  Upload key to keyserver            ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}7.${NC}  Update key on keyserver            ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -137,13 +143,14 @@ show_key_server_menu() {
 # Function to display the miscellaneous menu
 show_miscellaneous_menu() {
     clear
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${NC}    Main > Miscellaneous Operations${NC}"
-    echo -e "${CYAN}========================================${NC}"
-    echo -e "${GREEN} 1.${NC} ${NC}Show GPG config info${NC}"
-    echo -e "${GREEN} 2.${NC} ${NC}Show key fingerprint${NC}"
-    echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-    echo -e "${CYAN}========================================${NC}"
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│          Main > Miscellaneous Operations          │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Show GPG config info               ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Show key fingerprint               ${CYAN}           │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+    echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
     echo -e "${GREEN}Please select an option:${NC}"
     echo -n "> "
 }
@@ -230,8 +237,9 @@ key_server_menu() {
             2) import_key_from_keyserver ;;
             3) export_public_key ;;
             4) export_private_key ;;
-            5) upload_key_to_keyserver ;;
-            6) update_key_on_keyserver ;;
+            5) export_key_signature ;;
+            6) upload_key_to_keyserver ;;
+            7) update_key_on_keyserver ;;
             0) return ;;
             *) echo -e "${YELLOW}Invalid option" ;;
         esac
@@ -304,22 +312,23 @@ create_key() {
 list_keys() {
     while true; do
         clear
-        echo -e "${CYAN}========================================${NC}"
-        echo -e "${NC}   Main > Key Management > List Keys${NC}"
-        echo -e "${CYAN}========================================${NC}"
-        echo -e "${GREEN} 1.${NC} ${NC}Public keys${NC}"
-        echo -e "${GREEN} 2.${NC} ${NC}Private keys${NC}"
-        echo -e "${GREEN} 3.${NC} ${NC}Back to Key Management${NC}"
-        echo -e "${CYAN}========================================${NC}"
+        echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+        echo -e "${CYAN}│         Main > Key Management > List Keys         │${NC}"
+        echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Public keys                        ${CYAN}           │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Private keys                       ${CYAN}           │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to Key Management             ${CYAN}           │${NC}"
+        echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
         echo -e "${GREEN}Select key type to list:${NC}"
         echo -n "> > > "
         read -r key_type
         case $key_type in
             1|2)
                 clear
-                echo -e "${CYAN}========================================${NC}"
-                echo -e "${NC}           GPG Key Listing              ${NC}"
-                echo -e "${CYAN}========================================${NC}"
+                echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+                echo -e "${CYAN}│                  GPG Key Listing                  │${NC}"
+                echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
                 echo
 
                 # Run the gpg command and process its output
@@ -349,7 +358,7 @@ list_keys() {
                     }
                     /^Key fingerprint =/ {
                         # Print the fingerprint line
-                        fingerprint = "Huella de clave = " substr($0, 21)
+                        fingerprint = "Fingerprint = " substr($0, 21)
                         next
                     }
                     /^uid/ {
@@ -367,16 +376,16 @@ list_keys() {
                     }
                     /^$/ {
                         # Print a separator between keys
-                        print "----------------------------------------"
+                        print "--------------------------------------------------------------------------"
                     }
                 '
 
                 echo
-                echo -e "${CYAN}========================================${NC}"
+                echo -e "${CYAN}───────────────────────────────────────────────────────────────────────────${NC}"
                 echo -e "${GREEN}Press Enter to continue...${NC}"
                 read -r
                 ;;
-            3)
+            0)
                 return
                 ;;
             *)
@@ -608,6 +617,61 @@ export_private_key() {
     done
 }
 
+# Function to export a key signature
+export_key_signature() {
+    clear
+    echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+    echo -e "${CYAN}│             Exporting a Key Signature             │${NC}"
+    echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+    echo -e "${CYAN}│${NC} ${YELLOW}Remember to sign the key first... (Main > 3, 3) ${NC} ${CYAN} │${NC}"
+    echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
+    echo ""
+
+    read -rp "Fingerprint, keyID or email of the key to export its signature: " key_to_export_id
+
+    # Add the prompt for the user's signing key here
+    read -rp "Fingerprint, keyID or email of your signing key: " signing_key_id
+
+    # Remove all spaces from the fingerprints for filename purposes
+    clean_key_to_export_id=$(echo "${key_to_export_id}" | tr -d ' ')
+    clean_signing_key_id=$(echo "${signing_key_id}" | tr -d ' ')
+    
+    # Validate that the key to export exists in the keyring
+    if ! gpg --list-keys --fingerprint --quiet "${clean_key_to_export_id}" > /dev/null 2>&1; then
+        echo -e "${RED}Error: The key '${key_to_export_id}' was not found in your keyring.${NC}"
+        read -n 1 -s -r -p "Press any key to continue..."
+        return
+    fi
+    
+    # Check if your key has signed the target key
+    if ! gpg --list-sigs "${clean_key_to_export_id}" | grep -q "${clean_signing_key_id}"; then
+        echo -e "${RED}Error: The key '${key_to_export_id}' is not signed by your key (${clean_signing_key_id}).${NC}"
+        echo -e "${YELLOW}Sign the key first with 'Main menu > option 3, then 3' before exporting.${NC}"
+        echo -e ""
+        read -n 1 -s -r -p "Press any key to continue..."
+        return
+    fi
+
+    # The export-options export-minimal ensures we only export the signature
+    # This is the correct command for your specific purpose
+    output_filename="${clean_key_to_export_id}_signedBy_${clean_signing_key_id}.asc"
+    
+    echo -e "${GREEN}Attempting to export signature...${NC}"
+    gpg --export --export-options export-minimal --armor "${clean_key_to_export_id}" > "${output_filename}" 2>/dev/null
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Success! Signature exported to ${output_filename}${NC}"
+        echo -e ""
+        echo -e "${YELLOW}Please send this file to the key owner.${NC}"
+    else
+        echo -e "${RED}Error: Failed to export the signature.${NC}"
+        echo -e "${YELLOW}This may happen if the key is not signed by you or if there are issues with the signature.${NC}"
+    fi
+
+    echo ""
+    read -n 1 -s -r -p "Press any key to return to the menu..."
+}
+
 upload_key_to_keyserver() {
     while true; do
         echo ""
@@ -768,14 +832,14 @@ update_key_on_keyserver() {
 backup_restore() {
     while true; do
         clear
-        echo -e "${CYAN}========================================${NC}"
-        echo -e "${NC}        Main > Backup and Restore${NC}"
-        echo -e "${CYAN}========================================${NC}"
-        echo -e "${GREEN}Please select an option:${NC}"
-        echo -e "${GREEN} 1.${NC} ${NC}Backup keys${NC}"
-        echo -e "${GREEN} 2.${NC} ${NC}Restore keys${NC}"
-        echo -e "${GREEN} 0.${NC} ${NC}Back to main menu${NC}"
-        echo -e "${CYAN}========================================${NC}"
+        echo -e "${CYAN}╭───────────────────────────────────────────────────╮${NC}"
+        echo -e "${CYAN}│             Main > Backup and Restore             │${NC}"
+        echo -e "${CYAN}├───────────────────────────────────────────────────┤${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}1.${NC}  Backup keys                        ${CYAN}           │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}2.${NC}  Restore keys                       ${CYAN}           │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN} ${NC}                                    ${CYAN}             │${NC}"
+        echo -e "${CYAN}│${NC} ${GREEN}0.${NC}  Back to main menu                  ${CYAN}           │${NC}"
+        echo -e "${CYAN}╰───────────────────────────────────────────────────╯${NC}"
         echo -e "${GREEN}Please select an option:${NC}"
         echo -n "> "
         read -r choice
